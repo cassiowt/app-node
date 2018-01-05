@@ -1,12 +1,17 @@
+var  config = require('./config') ;
+
 var express = require('express');
 var app = express();
 var port = 3021;
 var ser = '127.0.0.1';
 
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/animais');
+
+mongoose.createConnection(config.db.uri);
 //mongoose.connect('mongodb://localhost/animais', { server : {poolSize : 5, keepAlive : true}})
-mongoose.connect('mongodb://localhost/animais', {user : 'root', password : 'G0W40bT2QE39', server : {poolSize : 5, keepAlive : true}})
+//mongoose.createConnection('mongodb://root:G0W40bT2QE39@localhost/animais')
+//mongoose.connect('mongodb://localhost/animais');
+//mongoose.createConnection('mongodb://localhost/animais', {user : 'root', password : 'G0W40bT2QE39', mongos : true, server : {poolSize : 5, keepAlive : true}})
 //mongoose.createConnection('mongodb://mongos-ip-1:27018,mongos-ip-2:27018/mydb', {user : 'normaluser', password : 'some-password', mongos : true, server : {poolSize : 5, keepAlive : true}}
 
 var Animal = require('./model/animal');
