@@ -3,7 +3,7 @@ var mongoose = require('mongoose'); //modulo do mongose para persistencia no Mon
 var Schema = mongoose.Schema;
 
 // Criação do modelo
-var userSchema = new Schema({
+var animalSchema = new Schema({
     apelido: String,
     dono: { type: String, required: true, unique: true },
     vivo: Boolean,
@@ -13,12 +13,12 @@ var userSchema = new Schema({
     dataAlteracao: Date
 });
 
-var Animal = mongoose.model('Animal', userSchema);
+var Animal = mongoose.model('animais', animalchema);
 
 
 
 // Atualização de data ou inclusao data de criação
-userSchema.pre('save', function(next) {
+animalSchema.pre('save', function(next) {
 
     var currentDate = new Date();
     this.dataAlteracao = currentDate;
