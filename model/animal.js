@@ -13,7 +13,7 @@ var animalSchema = new Schema({
     dataAlteracao: Date
 });
 
-var Animal = mongoose.model('animais', animalchema);
+var Animal = mongoose.model('animais', animalSchema);
 
 
 
